@@ -10,7 +10,6 @@ jobs:
   publish:
     runs-on: self-hosted
     steps:
-      - name: Test
       - uses: actions/checkout@v3
       - run: |
           echo ready
