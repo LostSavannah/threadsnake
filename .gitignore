@@ -1,0 +1,4 @@
+__pycache__
+src/test
+dist
+threadsnake.egg-info

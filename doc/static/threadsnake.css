@@ -1,0 +1,42 @@
+body{
+    font-family: candara;
+    margin: 0px;
+}
+header{
+    padding: 1em;
+    font-size: 1.2em;
+    background: #333;
+    color:#DDD;
+}
+#navs{
+    padding: 0.6em;
+}
+
+#navs a{
+    text-decoration: none;
+    background:#1a4;
+    padding: 0.6em;
+    color: white;
+    display: block;
+}
+
+#left{
+    width: 20%;
+    float: left;
+}
+
+#right{
+    border: none;
+    width: 78%;
+    float: right;
+    height: 720px;
+}
+
+footer{
+    float: left;
+    width: 100%;
+}
+
+.footer{
+    padding: 2em;
+}
