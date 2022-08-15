@@ -12,5 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          echo ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }} >> token.txt
+          echo [pypi] > .pipyrc
+          echo username = __token__ >> .pipyrc
+          echo password = ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }} >> .pipyrc
           python3 builder.py CLEAN_DIST LOAD_VERSION GENERATE_FILES BUILD INSTALL
