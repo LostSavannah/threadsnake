@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/badge/Version-[version]-yellow.svg)](https://pypi.org/project/threadsnake/#history) 
 [![](https://img.shields.io/badge/Repo-Pypi-blue.svg)](https://pypi.org/project/threadsnake/#history) 
-[![](https://img.shields.io/badge/Repo-Github-purple.svg)](https://github.com/codeRookieErick/thread-snake) 
+[![](https://img.shields.io/badge/Repo-Github-purple.svg)](https://github.com/LostSavannah/threadsnake.git) 
 ![](https://img.shields.io/badge/Python_3.6-red.svg)
 
 **Threadsnake** is an experimental server side library. It was created as an educational (self-educational) project in order to explain how does [HTTP/1.1](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP) works (I'm lying, it was to understand it).

@@ -1,1 +1,1 @@
-python3 setup.py build bdist_wheel
+python3 builder.py CLEAN_DIST LOAD_VERSION GENERATE_FILES BUILD INSTALL

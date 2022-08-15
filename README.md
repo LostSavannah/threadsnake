@@ -1,12 +1,11 @@
 # Threadsnake
 
-[![](https://img.shields.io/badge/Version-0.0.19-yellow.svg)](https://pypi.org/project/threadsnake/#history)
-[![](https://img.shields.io/badge/Repo-Pypi-blue.svg)](https://pypi.org/project/threadsnake/#history)
-[![](https://img.shields.io/badge/Repo-Github-purple.svg)](https://github.com/codeRookieErick/thread-snake)
+[![](https://img.shields.io/badge/Version-0.0.22-yellow.svg)](https://pypi.org/project/threadsnake/#history) 
+[![](https://img.shields.io/badge/Repo-Pypi-blue.svg)](https://pypi.org/project/threadsnake/#history) 
+[![](https://img.shields.io/badge/Repo-Github-purple.svg)](https://github.com/codeRookieErick/thread-snake) 
 ![](https://img.shields.io/badge/Python_3.6-red.svg)
 
-**Threadsnake** is an experimental ser
-ver side library. It was created as an educational (self-educational) project in order to explain how does [HTTP/1.1](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP) works (I'm lying, it was to understand it).
+**Threadsnake** is an experimental server side library. It was created as an educational (self-educational) project in order to explain how does [HTTP/1.1](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP) works (I'm lying, it was to understand it).
 
 ```python
 from threadsnake.core import *
@@ -66,4 +65,4 @@ Wow... You're still reading. You have to be some sort of... Anime Archetype.
 
 Well, as you can see right now we lack of a proper documentation. You have to understand, it's a new and small project. That said, once I finish uploading the examples, I'm planning to publish the [documentation in this link](https://dev.moradev.dev/threadsnake/documentation/) and the bugs tracking [to this other link](https://dev.moradev.dev/threadsnake/issues/). Till then... you know. Don't let your dreams be dreams. JU5T D0 1T (I don't know anything about trademarks, so i wrote the phrase that way cause i don't want that ancient-greek sneakers-maker goddess to get mad at me).
 
-[![](https://dev.moradev.dev/nano-badges/nano-badge/0.0.19_[beta]/version/mustard/gray/candara)](https://pypi.org/project/threadsnake/#history)
+[![](https://dev.moradev.dev/nano-badges/nano-badge/0.0.22_[beta]/version/mustard/gray/candara)](https://pypi.org/project/threadsnake/#history)

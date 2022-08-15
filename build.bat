@@ -1,3 +1,1 @@
-py prepare.py
-py -m build
-install
+py builder.py CLEAN_DIST LOAD_VERSION GENERATE_FILES BUILD INSTALL

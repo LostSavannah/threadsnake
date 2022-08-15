@@ -18,7 +18,7 @@ setuptools.setup(
     description="A tiny experimental server-side express-like library",
     long_description=readfile("README.md"),
     long_description_content_type="text/markdown",
-    url="https://github.com/codeRookieErick/thread-snake",
+    url="https://github.com/LostSavannah/threadsnake.git",
     project_urls={
         "Bug Tracker": "https://dev.moradev.dev/threadsnake/issues/",
         "Documentation": "https://dev.moradev.dev/threadsnake/documentation/",
