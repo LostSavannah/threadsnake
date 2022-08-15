@@ -16,3 +16,4 @@ jobs:
           echo username = __token__ >> .pipyrc
           echo password = ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }} >> .pipyrc
           python3 builder.py CLEAN_DIST LOAD_VERSION GENERATE_FILES BUILD INSTALL
+          twine upload dist/*
