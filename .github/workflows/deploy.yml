@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          echo [pypi] > .pipyrc
-          echo username = __token__ >> .pipyrc
-          echo password = ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }} >> .pipyrc
+          echo [pypi] > .pypirc
+          echo username = __token__ >> .pypirc
+          echo password = ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }} >> .pypirc
           python3 builder.py CLEAN_DIST LOAD_VERSION GENERATE_FILES BUILD INSTALL
           twine upload dist/*
