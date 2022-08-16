@@ -154,20 +154,22 @@ def log(message:str, title:str = None, level:LogLevel = LogLevel.INFO, threadId:
     finally:
         logLock.release()
 
-def badge(text:str, textBackground:LogColors = LogColors.DARK_BACKGROUND_BLUE, title:str = None, titleBackground:LogColors = LogColors.DARK_BACKGROUND_BLACK):
+def badge(text:str, textBackground:LogColors = LogColors.DARK_BACKGROUND_BLUE, title:str = None, titleBackground:LogColors = LogColors.DARK_BACKGROUND_BLACK, padding:bool = True):
     message = titleBackground + f' {title or ""} ' + textBackground + f' {text} ' + LogColors.ENDC
     try:
         logLock.acquire()
-        print()
+        if padding:
+            print()
         print(message)
-        print()
+        if padding:
+            print()
     except Exception as e:
         print(e)
     finally:
         logLock.release()
 
-def badge_async(text:str, textBackground:LogColors = LogColors.DARK_BACKGROUND_BLUE, title:str = None, titleBackground:LogColors = LogColors.DARK_BACKGROUND_BLACK):
-    Thread(target=lambda: badge(text, textBackground, title, titleBackground)).start()
+def badge_async(text:str, textBackground:LogColors = LogColors.DARK_BACKGROUND_BLUE, title:str = None, titleBackground:LogColors = LogColors.DARK_BACKGROUND_BLACK, padding:bool = True):
+    Thread(target=lambda: badge(text, textBackground, title, titleBackground, padding)).start()
         
 def log_async(message:str, title:str = None, level:LogLevel = LogLevel.INFO):
     Thread(target=lambda: log(message, title, level, get_ident())).start()

@@ -12,5 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          python3 builder.py CLEAN_DIST LOAD_VERSION GENERATE_FILES BUILD INSTALL
+          python3 builder.py CLEAN_DIST LOAD_VERSION GENERATE_FILES BUILD INSTALL TEST
           twine upload -u __token__ -p ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }} dist/*

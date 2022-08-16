@@ -1,6 +1,8 @@
 import shutil
 import os
 import sys
+import subprocess
+import time
 from typing import Dict, List
 
 templates = {
@@ -90,8 +92,12 @@ def install(src:str = 'dist'):
     print(wheel)
     return pip(f'install {src}/{wheel} --no-cache-dir')
 
+
 def test():
-    pass
+    p = subprocess.Popen([sys.executable, 'test-server.py'], cwd='./test/', shell=False)
+    p.wait(1000)
+    #p = subprocess.call([sys.executable, 'test-server.py'], cwd = './test/', shell=True)
+    #command = f'{py} test/test-server.py {testPort}'
 
 actions = {
     "BUILD": build,
