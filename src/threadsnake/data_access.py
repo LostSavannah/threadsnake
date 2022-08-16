@@ -274,10 +274,10 @@ class NanORM(DatabaseAccess):
             c.commit()
             return cur.rowcount
 
-@Entity('Person').id([('id', 'rowid')]).readwrite(['firstName', 'lastName', 'identification']).filter(['firstName'])
-class PersonExample:
-    def __init__(self, id:int = 0, firstName:str = None, lastName:str = None, identification:str = None) -> None:
-        self.id = 0
-        self.firstName:str = firstName
-        self.lastName:str = lastName
-        self.identification:str = identification
+#@Entity('Person') #.id([('id', 'rowid')]).readwrite(['firstName', 'lastName', 'identification']).filter(['firstName'])
+#class PersonExample:
+#    def __init__(self, id:int = 0, firstName:str = None, lastName:str = None, identification:str = None) -> None:
+#        self.id = 0
+#        self.firstName:str = firstName
+#        self.lastName:str = lastName
+#        self.identification:str = identification
