@@ -1,10 +1,6 @@
 import os
 import setuptools
 
-from pathlib import Path
-this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text()
-
 def readfile(filename):
     with open(filename, 'r', encoding='latin1') as f:
         return f.read()
@@ -15,7 +11,7 @@ setuptools.setup(
     author="Erick Fernando Mora Ramirez",
     author_email="erickfernandomoraramirez@gmail.com",
     description="A tiny experimental server-side express-like library",
-    long_description=readfile('README.md'),
+    long_description=readfile('README.MD'),
     long_description_content_type="text/markdown",
     url="https://github.com/LostSavannah/threadsnake",
     project_urls={
