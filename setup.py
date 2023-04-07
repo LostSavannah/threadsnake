@@ -10,7 +10,7 @@ setuptools.setup(
     author="Erick Fernando Mora Ramirez",
     author_email="erickfernandomoraramirez@gmail.com",
     description="A tiny experimental server-side express-like library",
-    long_description=readfile("README.md"),
+    long_description=readfile("src/threadsnake/README.md"),
     long_description_content_type="text/markdown",
     url="https://github.com/codeRookieErick/threadsnake",
     project_urls={
