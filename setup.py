@@ -5,18 +5,19 @@ def readfile(filename):
     with open(filename, 'r', encoding='utf-8') as f:
         return f.read()
 
-print('///////////////////////////////////////////////////////')
-print(os.path.abspath(os.curdir))
-print('///////////////////////////////////////////////////////')
+version_file = os.sep.join([os.path.abspath(os.curdir), 'version.txt'])
+readme_file = os.sep.join([os.path.abspath(os.curdir), 'version.txt'])
 
+print(f'version from: {version_file}')
+print(f'reame from: {readme_file}')
 
 setuptools.setup(    
     name="threadsnake",
-    version=readfile("./version.txt"),
+    version=readfile(version_file),
     author="Erick Fernando Mora Ramirez",
     author_email="erickfernandomoraramirez@gmail.com",
     description="A tiny experimental server-side express-like library",
-    long_description=readfile("./README.md"),
+    long_description=readfile(readme_file),
     long_description_content_type="text/markdown",
     url="https://github.com/codeRookieErick/threadsnake",
     project_urls={
