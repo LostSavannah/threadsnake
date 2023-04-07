@@ -1,3 +1,3 @@
 # Threadsnake
 
-Threadsnake. A yet tiny experimental server-side express-like library.
+Threadsnake. A tiny experimental server-side express-like library.
