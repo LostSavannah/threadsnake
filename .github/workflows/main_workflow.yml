@@ -11,5 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
+          echo ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }}
           python3 -m build
 #          twine upload -u __token__ -p ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }} dist/*
