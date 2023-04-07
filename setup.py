@@ -1,8 +1,14 @@
+import os
 import setuptools
 
 def readfile(filename):
     with open(filename, 'r', encoding='utf-8') as f:
         return f.read()
+
+print('///////////////////////////////////////////////////////')
+print(os.path.abspath(os.curdir))
+print('///////////////////////////////////////////////////////')
+
 
 setuptools.setup(    
     name="threadsnake",
