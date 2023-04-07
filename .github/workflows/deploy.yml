@@ -1,0 +1,15 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows10-01
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          py -m build
+#          twine upload -u __token__ -p ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }} dist/*

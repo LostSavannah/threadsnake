@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "buildpackage",
+            "command": "py",
+            "args": ["build_project.py"],
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}
