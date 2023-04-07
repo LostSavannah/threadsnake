@@ -2,14 +2,17 @@ import os
 import setuptools
 
 def readfile(filename):
-    with open(filename, 'r', encoding='utf-8') as f:
-        return f.read()
+    try:
+        with open(filename, 'r', encoding='latin1') as f:
+            return f.read()
+    except:
+        return ''
 
 version_file = os.sep.join([os.path.abspath(os.curdir), 'version.txt'])
-readme_file = os.sep.join([os.path.abspath(os.curdir), 'version.txt'])
+readme_file = os.sep.join([os.path.abspath(os.curdir), 'README.md'])
 
 print(f'version from: {version_file}')
-print(f'reame from: {readme_file}')
+print(f'readme from: {readme_file}')
 
 setuptools.setup(    
     name="threadsnake",
@@ -19,7 +22,7 @@ setuptools.setup(
     description="A tiny experimental server-side express-like library",
     long_description=readfile(readme_file),
     long_description_content_type="text/markdown",
-    url="https://github.com/codeRookieErick/threadsnake",
+    url="https://github.com/LostSavannah/threadsnake",
     project_urls={
         "Bug Tracker": "https://dev.moradev.dev/threadsnake/issues/",
         "Documentation": "https://dev.moradev.dev/threadsnake/documentation/",
