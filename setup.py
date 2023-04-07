@@ -1,26 +1,21 @@
 import os
 import setuptools
 
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
+
 def readfile(filename):
-    try:
-        with open(filename, 'r', encoding='latin1') as f:
-            return f.read()
-    except:
-        return ''
-
-version_file = os.sep.join([os.path.abspath(os.curdir), 'version.txt'])
-readme_file = os.sep.join([os.path.abspath(os.curdir), 'README.md'])
-
-print(f'version from: {version_file}')
-print(f'readme from: {readme_file}')
+    with open(filename, 'r', encoding='latin1') as f:
+        return f.read()
 
 setuptools.setup(    
     name="threadsnake",
-    version=readfile(version_file),
+    version=readfile('version.txt'),
     author="Erick Fernando Mora Ramirez",
     author_email="erickfernandomoraramirez@gmail.com",
     description="A tiny experimental server-side express-like library",
-    long_description=readfile(readme_file),
+    long_description=readfile('README.md'),
     long_description_content_type="text/markdown",
     url="https://github.com/LostSavannah/threadsnake",
     project_urls={
