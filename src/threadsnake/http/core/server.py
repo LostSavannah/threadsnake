@@ -21,12 +21,14 @@ import socket
 from .common import ClientAddress, OnReceiveCallback
 
 class Server:
-    def __init__(self, port:int, onReceive:OnReceiveCallback, hostName:str = 'localhost', backlog:int = 8, chunkSize:int = 1024) -> None:
+    def __init__(self, port:int, onReceive:OnReceiveCallback, hostName:str = 'localhost', backlog:int = 8, chunkSize:int = 1024, listen_timeout:float = 0.5) -> None:
         self.port = port
         self.hostname = hostName
         self.backlog = backlog
         self.chunkSize = chunkSize
+        self.listen_timeout = listen_timeout
         self.onReceive = onReceive
+        self.active = False
 
     def loop(self):
         return asyncio.get_event_loop()
@@ -39,7 +41,7 @@ class Server:
 
     async def on_accept(self, client:socket.socket, address:ClientAddress):
         data:bytearray = bytearray()
-        while True:
+        while self.active:
             chunk:bytes = await self.read(client, self.chunkSize)
             if len(chunk) == 0:
                 break
@@ -49,6 +51,9 @@ class Server:
         client.close()
 
     async def run(self):
+        if self.active:
+            return
+        self.active = True
         serverSocket:socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         serverSocket.bind((self.hostname, self.port))
         serverSocket.listen(self.backlog)
@@ -56,11 +61,21 @@ class Server:
         
         loop:asyncio.AbstractEventLoop = self.loop()
 
-        while True:
+        while self.active:
             client:socket.socket = None
             address:ClientAddress = ('', 0)
-            client, address = await loop.sock_accept(serverSocket)
-            loop.create_task(self.on_accept(client, address))
+            accept_task = asyncio.create_task(loop.sock_accept(serverSocket))
+            try:
+                client, address = await asyncio.wait_for(accept_task, self.listen_timeout)
+                loop.create_task(self.on_accept(client, address))
+            except KeyboardInterrupt:
+                accept_task.cancel()
+                break
+            except asyncio.TimeoutError:
+                accept_task.cancel()
 
     def start(self):
-        asyncio.run(self.run())
+        try:
+            asyncio.run(self.run())
+        except KeyboardInterrupt:
+            exit()

@@ -26,7 +26,7 @@ version:str = f'{major}.{minor}.{build}'
 
 wheel:str = configuration["templates"]["wheel"].replace("{version}", version)
 
-commands.append(f'echo {version} > src\\threadsnake\\version.txt')
+commands.append(f'echo {version} > version.txt')
 commands.append(f'call py -m build')
 commands.append(configuration["commands"]["uninstall"])
 commands.append(f'pip3 install dist\\{wheel} --no-cache-dir')
