@@ -13,6 +13,7 @@ def tag(name:str, content:str = None, cls=None, *children, **attributes) -> str:
         for child in children:
             result += child
         result += f'</{name}>'
+    return result
 
 def link(location:str, text:str, cls:str = None):
     return tag('a', text, cls, href=location)
