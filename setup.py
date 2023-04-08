@@ -15,9 +15,9 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/LostSavannah/threadsnake",
     project_urls={
-        "Bug Tracker": "https://dev.moradev.dev/threadsnake/issues/",
-        "Documentation": "https://dev.moradev.dev/threadsnake/documentation/",
-        "Examples": "https://dev.moradev.dev/threadsnake/examples/",
+        "Bug Tracker": "https://dev.moradev.dev/threadsnake/issues",
+        "Documentation": "https://dev.moradev.dev/threadsnake/documentation",
+        "Examples": "https://dev.moradev.dev/threadsnake/examples",
     },
     package_data={
         "":["*.txt"]
