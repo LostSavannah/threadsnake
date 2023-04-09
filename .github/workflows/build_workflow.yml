@@ -1,8 +1,6 @@
 name: Build
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -21,4 +19,3 @@ jobs:
           pip install pytest
           python3 tests/test_server/main.py
           deactivate
-          twine upload -u __token__ -p ${{ secrets.PYPI_UPLOAD_TWINE_TOKEN }} dist/*
