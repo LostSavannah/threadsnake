@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-01
     steps:
       - name: Build
-      - continue-on-error: true
       - uses: actions/checkout@v3
       - run: |
           python3 -m build
