@@ -11,7 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          rm -r dist
           python3 -m build
           pip3 uninstall -y threadsnake
           dir dist/*.whl | xargs -I {} pip3 install {}
