@@ -15,7 +15,6 @@ jobs:
           python3 -m build
           python3 -m venv testenv
           source testenv/bin/activate
-          pip uninstall -y threadsnake || true
           dir dist/*.whl | xargs -I {} pip install {}
           pip install requests
           pip install pytest
