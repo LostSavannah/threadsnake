@@ -1,4 +1,5 @@
 import asyncio
+import sys
 from threadsnake.turbo import Application
 from threadsnake.http.tools.routing import routes_to_folder
 
@@ -11,4 +12,7 @@ async def run_server():
     await p.wait()
     app_task.cancel()
 
-asyncio.run(run_server())
+if 'server' in sys.argv:
+    asyncio.run(app.run())
+else:
+    asyncio.run(run_server())

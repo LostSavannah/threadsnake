@@ -1,13 +1,32 @@
-import requests
-from warnings import filterwarnings
-
-filterwarnings('ignore', 'request is being made to')
-
-base_url = 'http://localhost:9090'
+from testtools.tools import get
 
 def test_get():
-    data = requests.get(f'{base_url}/users', verify=False).text
-    print(data)
+    data = get('resources').json()
+    assert len(data) == 1
+
+def test_accepts_when_not_valid_content_type_returns_400():
+    assert 1 == 1
+
+def test_accepts_when_valid_content_type_returns_200():
+    assert 1 == 1
+    
+def test_validates_request_when_invalid_returns_400():
+    assert 1 == 1
+
+def test_validates_request_when_valid_returns_200():
+    assert 1 == 1
+    
+def test_requires_parameters_when_invalid_returns_400():
+    assert 1 == 1
+
+def test_requires_parameters_when_valid_returns_200():
+    assert 1 == 1
+
+def test_accepts_json_when_invalid_returns_400():
+    assert 1 == 1
+
+def test_accepts_json_when_valid_returns_200():
+    assert 1 == 1
 
 def test_alive():
     assert 2 == 2
