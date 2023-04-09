@@ -19,6 +19,7 @@
 import importlib
 import importlib.util
 import os
+import socket
 import sys
 from types import ModuleType
 from typing import List, Tuple
@@ -69,42 +70,11 @@ def routes_to_folder(app:Application, path:str):
         path, root = route
         routes_to(app, path, root)
 
-##def get_routers(moduleName:str) -> List[Router]:
-##    routers:List[Router] = []
-##    module:ModuleType = importlib.import_module(moduleName)
-##    for property in dir(module):
-##        if isinstance(getattr(module, property), Router):
-##            routers.append(getattr(module, property))
-##    return routers
-##
-##def load_router(path:str) -> ConfiguredRoute:
-##    if not path.endswith('.py'):
-##        return
-##    path = path[:-3]
-##    pathParts:List[str] = [i for i in path.replace(os.sep, '.').split('.') if len(i) > 0]
-##    module:str = '.'.join(pathParts)
-##    path:str = '/'.join(pathParts[1:])
-##    return path, get_routers(module)
-##
-##def get_files(folder:str) -> List[str]:
-##    filo = [os.sep.join([j[0], i]) for j in os.walk(folder) for i in j[2]]
-##    print(folder, filo)
-##    input('')
-##
-##def load_routes(path:str) -> List[ConfiguredRoute]:
-##    baseFolder:str = os.path.dirname(__main__.__file__)
-##    fullSearchPath = os.sep.join([baseFolder, path])
-##    get_files(fullSearchPath)
-##    base:str = os.path.abspath(os.curdir)
-##    print(f"{baseFolder} on {base}")
-##    configuredRoutes: List[ConfiguredRoute] = []
-##    modules:List[str] = [i for i in os.listdir(fullSearchPath) if i.endswith('.py')]
-##    input(modules)
-##    for module in modules:
-##        configuredRoutes.append(load_router(os.sep.join([path, module])))
-##    return configuredRoutes
-##        
-##def configure_routes(app:Application, path:str) -> None:
-##    for configuredRoute in load_routes(path):
-##        for router in configuredRoute[1]:
-##            app.use_router(router, configuredRoute[0])
+def get_next_free_port(start:int = 8080):
+    while start < 65535:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            try:
+                s.bind(("", start))
+                return start
+            except OSError:
+                start += 1
