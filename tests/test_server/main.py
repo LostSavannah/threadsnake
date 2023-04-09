@@ -2,14 +2,13 @@ import asyncio
 from threadsnake.turbo import Application
 from threadsnake.http.tools.routing import routes_to_folder
 
-import os
-
 app = Application(9090)
 routes_to_folder(app, 'routers')
 
-async def run_test_server_and_test():
-    task = asyncio.create_task(app.run())
-    os.system('pytest')
-    task.cancel()
+async def run_server():
+    p:asyncio.subprocess.Process = await asyncio.create_subprocess_exec('pytest')
+    app_task = asyncio.create_task(app.run())
+    await p.wait()
+    app_task.cancel()
 
-asyncio.run(run_test_server_and_test())
+asyncio.run(run_server())
