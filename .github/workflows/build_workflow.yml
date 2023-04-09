@@ -17,5 +17,5 @@ jobs:
           dir dist/*.whl | xargs -I {} pip install {}
           pip install requests
           pip install pytest
-          pytest
+          python3 tests/test_server/main.py
           deactivate
