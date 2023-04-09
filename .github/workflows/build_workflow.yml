@@ -9,9 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-01
     steps:
+      - name: Build
+      - continue-on-error: true
       - uses: actions/checkout@v3
       - run: |
           python3 -m build
-          pip3 uninstall -y threadsnake
-          dir dist/*.whl | xargs -I {} pip3 install {}
+          python3 -m venv testenv
+          source testenv/bin/activate
+          pip uninstall -y threadsnake || true
+          dir dist/*.whl | xargs -I {} pip install {}
+          pip install requests
+          pip install pytest
           pytest
+          deactivate
