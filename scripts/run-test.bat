@@ -1,3 +1,4 @@
+cd ..
 if exist dist rd /s /q dist
 py -m build
 set ENVIRONMENT_NAME=testenv
@@ -8,3 +9,4 @@ pip install requests
 pip install pytest
 pytest
 deactivate
+cd scripts

@@ -12,4 +12,4 @@ def time_measure(app:Application, req:HttpRequest, res:HttpResponse, next:Next) 
     startTime = time()
     next()
     interval = (time() - startTime) * 1000
-    res.headers['RTT'] = str(interval)
+    res.set_header('RTT', str(interval))

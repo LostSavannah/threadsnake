@@ -13,7 +13,7 @@ def default_headers(headersProvider: DictProvider) -> Middleware:
     def middleware(app: Application, req: HttpRequest, res: HttpResponse, next:Next) -> None:
         headers = headersProvider()
         for h in headers:
-            res.headers[h] = headers[h]
+            res.set_header(h, headers[h]) 
         next()
     return middleware
 
@@ -33,7 +33,7 @@ def build_default_headers(baseHeaders: Dict[str, str] = None) -> DictProvider:
             "Active-Since": str(since),
             "Epoch": str(time.time()),
             "Powered-By": "Threadsnake beta",
-            "Request-Count": requestNumber
+            "Request-Count": str(requestNumber)
         })
         return headers
     return provider
