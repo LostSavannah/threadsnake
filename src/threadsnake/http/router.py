@@ -29,7 +29,7 @@ class Router:
         (r"{([\w]+)\:int}", r"(?P<\1>[-]?[\\d]+)"), #Int pattern
         (r"{([\w]+)\:float}", r"(?P<\1>[-]?[\\d]+[\\.]?[\\d]?)"), #Float pattern
         (r"{([\w]+)\:re\(([\w\W]+?)\)}", r"(?P<\1>\2)"), #Regex pattern
-        (r"{([\w]+)}", r"(?P<\1>[^\]+)"), #General pattern
+        (r"{([\w]+)}", r"(?P<\1>[\\w\\-]+)"), #General pattern
     ]
 
     def __init__(self) -> None:
