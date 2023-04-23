@@ -1,1 +1,1 @@
-nodemon --exec py main.py server
+nodemon --exec py server.py
